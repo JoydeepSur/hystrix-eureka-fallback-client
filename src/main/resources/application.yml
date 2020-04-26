@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+    
+
+spring:
+  application:
+    name: hystrix-eureka-fallback-client
+    
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:enabled: false 
